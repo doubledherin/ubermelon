@@ -1,13 +1,16 @@
-def main():
-    print "******************************************"
+melon_tallies = {"Musk": 0, "Hybrid": 0, "Watermelon": 0, "Winter": 0}
+
+def melons_sold():
     f = open("orders_by_type.csv")
-    melon_tallies = {"Musk": 0, "Hybrid": 0, "Watermelon": 0, "Winter": 0}
     for line in f:
         data = line.split(",")
         melon_type = data[1]
         melon_count = int(data[2])
         melon_tallies[melon_type] += melon_count
     f.close()
+print "******************************************"
+
+def revenue_per_melon():
     melon_prices = { "Musk": 1.15, "Hybrid": 1.30, "Watermelon": 1.75, "Winter": 4.00 }
     total_revenue = 0
     for melon_type in melon_tallies:
@@ -16,6 +19,8 @@ def main():
         total_revenue += revenue
         print "We sold %d %s melons at %0.2f each for a total of %0.2f" % (melon_tallies[melon_type], melon_type, price, revenue)
     print "******************************************"
+
+def sales_report_bifurcated():
     f = open("orders_with_sales.csv")
     sales = [0, 0]
     for line in f:
@@ -34,4 +39,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    melons_sold()
+    revenue_per_melon()
+    sales_report_bifurcated()

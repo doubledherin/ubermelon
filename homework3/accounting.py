@@ -8,7 +8,7 @@ def melons_sold():
         melon_count = int(data[2])
         melon_tallies[melon_type] += melon_count
     f.close()
-print "******************************************"
+    print "******************************************"
 
 def revenue_per_melon():
     melon_prices = { "Musk": 1.15, "Hybrid": 1.30, "Watermelon": 1.75, "Winter": 4.00 }

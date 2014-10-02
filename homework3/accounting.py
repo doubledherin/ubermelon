@@ -1,6 +1,9 @@
-melon_tallies = {"Musk": 0, "Hybrid": 0, "Watermelon": 0, "Winter": 0}
 
-def melons_sold():
+def revenue_per_melon():
+
+    # create dictionary of melon sales, where melon_type is the key and the number
+    # of melons sold is the value
+    melon_tallies = {"Musk": 0, "Hybrid": 0, "Watermelon": 0, "Winter": 0}
     f = open("orders_by_type.csv")
     for line in f:
         data = line.split(",")
@@ -8,9 +11,7 @@ def melons_sold():
         melon_count = int(data[2])
         melon_tallies[melon_type] += melon_count
     f.close()
-    print "******************************************"
 
-def revenue_per_melon():
     melon_prices = { "Musk": 1.15, "Hybrid": 1.30, "Watermelon": 1.75, "Winter": 4.00 }
     total_revenue = 0
     for melon_type in melon_tallies:
@@ -39,6 +40,5 @@ def sales_report_bifurcated():
 
 
 if __name__ == "__main__":
-    melons_sold()
     revenue_per_melon()
     sales_report_bifurcated()
